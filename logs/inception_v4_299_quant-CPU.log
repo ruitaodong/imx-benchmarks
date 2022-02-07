@@ -1,0 +1,265 @@
+STARTING!
+Log parameter values verbosely: [0]
+Graph: [inception_v4_299_quant_20181026/inception_v4_299_quant.tflite]
+Enable op profiling: [1]
+Loaded model inception_v4_299_quant_20181026/inception_v4_299_quant.tflite
+Going to apply 0 delegates one after another.
+The input model file size (MB): 42.8555
+Initialized session in 697.096ms.
+Running benchmark for at least 1 iterations and at least 0.5 seconds but terminate if exceeding 150 seconds.
+count=1 curr=3249203
+
+Running benchmark for at least 50 iterations and at least 1 seconds but terminate if exceeding 150 seconds.
+count=50 first=2898218 curr=2898793 min=2897217 max=2899880 avg=2.89838e+06 std=653
+
+Inference timings in us: Init: 697096, First inference: 3249203, Warmup (avg): 3.2492e+06, Inference (avg): 2.89838e+06
+Note: as the benchmark tool itself affects memory footprint, the following is only APPROXIMATE to the actual memory footprint of the model at runtime. Take the information at your discretion.
+Peak memory footprint (MB): init=11.7773 overall=59.0312
+Profiling Info for Benchmark Initialization:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	         AllocateTensors	            0.000	    4.395	    4.395	100.000%	100.000%	   432.000	        1	AllocateTensors/0
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	         AllocateTensors	            0.000	    4.395	    4.395	100.000%	100.000%	   432.000	        1	AllocateTensors/0
+
+Number of nodes executed: 1
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	         AllocateTensors	        1	     4.395	   100.000%	   100.000%	   432.000	        1
+
+Timings (microseconds): count=1 curr=4395
+Memory (bytes): count=0
+1 nodes observed
+
+
+
+Operator-wise Profiling Info for Regular Benchmark Runs:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	                 CONV_2D	            0.016	   15.122	   13.575	  0.468%	  0.468%	     0.000	        1	[InceptionV4/InceptionV4/Conv2d_1a_3x3/Relu]:0
+	                 CONV_2D	           13.593	   59.927	   59.700	  2.060%	  2.528%	     0.000	        1	[InceptionV4/InceptionV4/Conv2d_2a_3x3/Relu]:1
+	                 CONV_2D	           73.296	   99.926	   99.842	  3.445%	  5.974%	     0.000	        1	[InceptionV4/InceptionV4/Conv2d_2b_3x3/Relu]:2
+	             MAX_POOL_2D	          173.139	    2.233	    2.225	  0.077%	  6.050%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_3a/Branch_0/MaxPool_0a_3x3/MaxPool]:3
+	                 CONV_2D	          175.366	   68.841	   68.861	  2.376%	  8.426%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_3a/Branch_1/Conv2d_0a_3x3/Relu]:4
+	           CONCATENATION	          244.228	    7.165	    7.190	  0.248%	  8.675%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_3a/concat]:5
+	                 CONV_2D	          251.420	   14.372	   14.417	  0.497%	  9.172%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_0/Conv2d_0a_1x1/Relu]:6
+	                 CONV_2D	          265.838	   64.563	   64.623	  2.230%	 11.402%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_0/Conv2d_1a_3x3/Relu]:7
+	                 CONV_2D	          330.462	   14.563	   14.552	  0.502%	 11.904%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_1/Conv2d_0a_1x1/Relu]:8
+	                 CONV_2D	          345.017	   35.039	   35.009	  1.208%	 13.112%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_1/Conv2d_0b_1x7/Relu]:9
+	                 CONV_2D	          380.027	   35.591	   35.689	  1.231%	 14.344%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_1/Conv2d_0c_7x1/Relu]:10
+	                 CONV_2D	          415.717	   64.482	   64.606	  2.229%	 16.573%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_1/Conv2d_1a_3x3/Relu]:11
+	           CONCATENATION	          480.325	    7.025	    7.021	  0.242%	 16.815%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/concat]:12
+	             MAX_POOL_2D	          487.348	    1.380	    1.347	  0.046%	 16.862%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5a/Branch_1/MaxPool_1a_3x3/MaxPool]:13
+	                 CONV_2D	          488.696	   83.823	   83.744	  2.890%	 19.751%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5a/Branch_0/Conv2d_1a_3x3/Relu]:14
+	           CONCATENATION	          572.441	    3.403	    3.384	  0.117%	 19.868%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5a/concat]:15
+	         AVERAGE_POOL_2D	          575.826	   13.953	   13.713	  0.473%	 20.341%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/Branch_3/AvgPool_0a_3x3/AvgPool]:16
+	                 CONV_2D	          589.540	   10.920	   10.925	  0.377%	 20.718%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/Branch_0/Conv2d_0a_1x1/Relu]:17
+	                 CONV_2D	          600.466	    6.831	    6.801	  0.235%	 20.953%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/Branch_1/Conv2d_0a_1x1/Relu]:18
+	                 CONV_2D	          607.269	   15.836	   15.831	  0.546%	 21.499%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/Branch_1/Conv2d_0b_3x3/Relu]:19
+	                 CONV_2D	          623.102	    6.816	    6.815	  0.235%	 21.734%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/Branch_2/Conv2d_0a_1x1/Relu]:20
+	                 CONV_2D	          629.918	   15.809	   15.834	  0.546%	 22.281%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/Branch_2/Conv2d_0b_3x3/Relu]:21
+	                 CONV_2D	          645.753	   23.318	   23.287	  0.804%	 23.084%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/Branch_2/Conv2d_0c_3x3/Relu]:22
+	                 CONV_2D	          669.042	   10.917	   10.881	  0.375%	 23.460%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/Branch_3/Conv2d_0b_1x1/Relu]:23
+	           CONCATENATION	          679.924	    5.394	    5.557	  0.192%	 23.651%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5b/concat]:24
+	         AVERAGE_POOL_2D	          685.483	   13.493	   13.681	  0.472%	 24.123%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/Branch_3/AvgPool_0a_3x3/AvgPool]:25
+	                 CONV_2D	          699.166	   10.927	   10.920	  0.377%	 24.500%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/Branch_0/Conv2d_0a_1x1/Relu]:26
+	                 CONV_2D	          710.087	    6.798	    6.802	  0.235%	 24.735%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/Branch_1/Conv2d_0a_1x1/Relu]:27
+	                 CONV_2D	          716.891	   15.774	   15.811	  0.546%	 25.280%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/Branch_1/Conv2d_0b_3x3/Relu]:28
+	                 CONV_2D	          732.703	    6.851	    6.815	  0.235%	 25.516%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/Branch_2/Conv2d_0a_1x1/Relu]:29
+	                 CONV_2D	          739.520	   15.745	   15.819	  0.546%	 26.061%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/Branch_2/Conv2d_0b_3x3/Relu]:30
+	                 CONV_2D	          755.341	   23.316	   23.313	  0.804%	 26.866%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/Branch_2/Conv2d_0c_3x3/Relu]:31
+	                 CONV_2D	          778.656	   10.885	   10.903	  0.376%	 27.242%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/Branch_3/Conv2d_0b_1x1/Relu]:32
+	           CONCATENATION	          789.560	    5.554	    5.572	  0.192%	 27.434%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5c/concat]:33
+	         AVERAGE_POOL_2D	          795.133	   13.645	   13.688	  0.472%	 27.907%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/Branch_3/AvgPool_0a_3x3/AvgPool]:34
+	                 CONV_2D	          808.823	   10.876	   10.937	  0.377%	 28.284%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/Branch_0/Conv2d_0a_1x1/Relu]:35
+	                 CONV_2D	          819.761	    6.810	    6.809	  0.235%	 28.519%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/Branch_1/Conv2d_0a_1x1/Relu]:36
+	                 CONV_2D	          826.572	   15.721	   15.810	  0.546%	 29.065%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/Branch_1/Conv2d_0b_3x3/Relu]:37
+	                 CONV_2D	          842.383	    6.820	    6.820	  0.235%	 29.300%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/Branch_2/Conv2d_0a_1x1/Relu]:38
+	                 CONV_2D	          849.205	   15.799	   15.808	  0.545%	 29.845%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/Branch_2/Conv2d_0b_3x3/Relu]:39
+	                 CONV_2D	          865.014	   23.186	   23.263	  0.803%	 30.648%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/Branch_2/Conv2d_0c_3x3/Relu]:40
+	                 CONV_2D	          888.279	   10.826	   10.859	  0.375%	 31.023%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/Branch_3/Conv2d_0b_1x1/Relu]:41
+	           CONCATENATION	          899.139	    5.579	    5.551	  0.192%	 31.214%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5d/concat]:42
+	         AVERAGE_POOL_2D	          904.692	   13.448	   13.676	  0.472%	 31.686%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/Branch_3/AvgPool_0a_3x3/AvgPool]:43
+	                 CONV_2D	          918.369	   10.945	   10.928	  0.377%	 32.063%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/Branch_0/Conv2d_0a_1x1/Relu]:44
+	                 CONV_2D	          929.299	    6.782	    6.792	  0.234%	 32.298%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/Branch_1/Conv2d_0a_1x1/Relu]:45
+	                 CONV_2D	          936.092	   15.724	   15.821	  0.546%	 32.844%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/Branch_1/Conv2d_0b_3x3/Relu]:46
+	                 CONV_2D	          951.915	    6.812	    6.829	  0.236%	 33.079%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/Branch_2/Conv2d_0a_1x1/Relu]:47
+	                 CONV_2D	          958.745	   15.737	   15.806	  0.545%	 33.625%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/Branch_2/Conv2d_0b_3x3/Relu]:48
+	                 CONV_2D	          974.553	   23.208	   23.289	  0.804%	 34.428%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/Branch_2/Conv2d_0c_3x3/Relu]:49
+	                 CONV_2D	          997.844	   10.842	   10.905	  0.376%	 34.805%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/Branch_3/Conv2d_0b_1x1/Relu]:50
+	           CONCATENATION	         1008.750	    5.515	    5.475	  0.189%	 34.993%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5e/concat]:51
+	             MAX_POOL_2D	         1014.227	    0.742	    0.734	  0.025%	 35.019%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6a/Branch_2/MaxPool_1a_3x3/MaxPool]:52
+	                 CONV_2D	         1014.962	   81.827	   81.765	  2.821%	 37.840%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6a/Branch_0/Conv2d_1a_3x3/Relu]:53
+	                 CONV_2D	         1096.729	   20.194	   20.246	  0.699%	 38.539%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6a/Branch_1/Conv2d_0a_1x1/Relu]:54
+	                 CONV_2D	         1116.976	   99.210	   99.160	  3.422%	 41.960%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6a/Branch_1/Conv2d_0b_3x3/Relu]:55
+	                 CONV_2D	         1216.138	   31.245	   31.273	  1.079%	 43.039%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6a/Branch_1/Conv2d_1a_3x3/Relu]:56
+	           CONCATENATION	         1247.412	    3.164	    3.220	  0.111%	 43.151%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6a/concat]:57
+	         AVERAGE_POOL_2D	         1250.634	    7.468	    7.491	  0.258%	 43.409%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_3/AvgPool_0a_3x3/AvgPool]:58
+	                 CONV_2D	         1258.126	   24.159	   24.166	  0.834%	 44.243%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_0/Conv2d_0a_1x1/Relu]:59
+	                 CONV_2D	         1282.294	   12.007	   11.936	  0.412%	 44.655%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_1/Conv2d_0a_1x1/Relu]:60
+	                 CONV_2D	         1294.232	   18.716	   18.728	  0.646%	 45.301%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_1/Conv2d_0b_1x7/Relu]:61
+	                 CONV_2D	         1312.961	   24.418	   24.433	  0.843%	 46.144%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_1/Conv2d_0c_7x1/Relu]:62
+	                 CONV_2D	         1337.396	   11.976	   11.981	  0.413%	 46.557%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_2/Conv2d_0a_1x1/Relu]:63
+	                 CONV_2D	         1349.378	   15.640	   15.645	  0.540%	 47.097%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_2/Conv2d_0b_7x1/Relu]:64
+	                 CONV_2D	         1365.025	   18.627	   18.674	  0.644%	 47.742%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_2/Conv2d_0c_1x7/Relu]:65
+	                 CONV_2D	         1383.701	   22.118	   22.091	  0.762%	 48.504%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_2/Conv2d_0d_7x1/Relu]:66
+	                 CONV_2D	         1405.793	   24.343	   24.299	  0.838%	 49.342%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_2/Conv2d_0e_1x7/Relu]:67
+	                 CONV_2D	         1430.094	    8.009	    8.009	  0.276%	 49.619%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/Branch_3/Conv2d_0b_1x1/Relu]:68
+	           CONCATENATION	         1438.105	    3.172	    3.165	  0.109%	 49.728%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6b/concat]:69
+	         AVERAGE_POOL_2D	         1441.271	    7.299	    7.366	  0.254%	 49.982%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_3/AvgPool_0a_3x3/AvgPool]:70
+	                 CONV_2D	         1448.638	   24.116	   24.140	  0.833%	 50.815%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_0/Conv2d_0a_1x1/Relu]:71
+	                 CONV_2D	         1472.780	   12.064	   11.976	  0.413%	 51.228%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_1/Conv2d_0a_1x1/Relu]:72
+	                 CONV_2D	         1484.757	   18.643	   18.716	  0.646%	 51.874%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_1/Conv2d_0b_1x7/Relu]:73
+	                 CONV_2D	         1503.475	   24.383	   24.451	  0.844%	 52.718%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_1/Conv2d_0c_7x1/Relu]:74
+	                 CONV_2D	         1527.928	   11.939	   11.931	  0.412%	 53.130%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_2/Conv2d_0a_1x1/Relu]:75
+	                 CONV_2D	         1539.860	   15.730	   15.684	  0.541%	 53.671%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_2/Conv2d_0b_7x1/Relu]:76
+	                 CONV_2D	         1555.546	   18.611	   18.699	  0.645%	 54.316%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_2/Conv2d_0c_1x7/Relu]:77
+	                 CONV_2D	         1574.246	   22.037	   22.079	  0.762%	 55.078%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_2/Conv2d_0d_7x1/Relu]:78
+	                 CONV_2D	         1596.327	   24.336	   24.291	  0.838%	 55.916%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_2/Conv2d_0e_1x7/Relu]:79
+	                 CONV_2D	         1620.619	    8.027	    8.010	  0.276%	 56.192%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/Branch_3/Conv2d_0b_1x1/Relu]:80
+	           CONCATENATION	         1628.630	    3.265	    3.156	  0.109%	 56.301%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6c/concat]:81
+	         AVERAGE_POOL_2D	         1631.787	    7.283	    7.388	  0.255%	 56.556%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_3/AvgPool_0a_3x3/AvgPool]:82
+	                 CONV_2D	         1639.177	   24.067	   24.109	  0.832%	 57.388%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_0/Conv2d_0a_1x1/Relu]:83
+	                 CONV_2D	         1663.287	   11.918	   11.938	  0.412%	 57.800%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_1/Conv2d_0a_1x1/Relu]:84
+	                 CONV_2D	         1675.227	   18.607	   18.682	  0.645%	 58.445%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_1/Conv2d_0b_1x7/Relu]:85
+	                 CONV_2D	         1693.910	   24.356	   24.395	  0.842%	 59.287%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_1/Conv2d_0c_7x1/Relu]:86
+	                 CONV_2D	         1718.307	   11.866	   11.902	  0.411%	 59.697%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_2/Conv2d_0a_1x1/Relu]:87
+	                 CONV_2D	         1730.211	   15.626	   15.638	  0.540%	 60.237%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_2/Conv2d_0b_7x1/Relu]:88
+	                 CONV_2D	         1745.851	   18.775	   18.759	  0.647%	 60.884%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_2/Conv2d_0c_1x7/Relu]:89
+	                 CONV_2D	         1764.611	   22.124	   22.089	  0.762%	 61.646%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_2/Conv2d_0d_7x1/Relu]:90
+	                 CONV_2D	         1786.702	   24.274	   24.300	  0.839%	 62.485%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_2/Conv2d_0e_1x7/Relu]:91
+	                 CONV_2D	         1811.004	    8.040	    8.015	  0.277%	 62.761%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/Branch_3/Conv2d_0b_1x1/Relu]:92
+	           CONCATENATION	         1819.020	    3.148	    3.175	  0.110%	 62.871%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6d/concat]:93
+	         AVERAGE_POOL_2D	         1822.196	    7.341	    7.347	  0.254%	 63.124%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_3/AvgPool_0a_3x3/AvgPool]:94
+	                 CONV_2D	         1829.545	   24.131	   24.193	  0.835%	 63.959%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_0/Conv2d_0a_1x1/Relu]:95
+	                 CONV_2D	         1853.740	   11.948	   11.975	  0.413%	 64.373%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_1/Conv2d_0a_1x1/Relu]:96
+	                 CONV_2D	         1865.717	   18.712	   18.740	  0.647%	 65.019%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_1/Conv2d_0b_1x7/Relu]:97
+	                 CONV_2D	         1884.458	   24.406	   24.417	  0.843%	 65.862%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_1/Conv2d_0c_7x1/Relu]:98
+	                 CONV_2D	         1908.877	   11.923	   11.951	  0.412%	 66.274%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_2/Conv2d_0a_1x1/Relu]:99
+	                 CONV_2D	         1920.829	   15.614	   15.636	  0.540%	 66.814%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_2/Conv2d_0b_7x1/Relu]:100
+	                 CONV_2D	         1936.467	   18.682	   18.698	  0.645%	 67.459%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_2/Conv2d_0c_1x7/Relu]:101
+	                 CONV_2D	         1955.167	   21.970	   22.069	  0.762%	 68.220%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_2/Conv2d_0d_7x1/Relu]:102
+	                 CONV_2D	         1977.237	   24.241	   24.318	  0.839%	 69.059%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_2/Conv2d_0e_1x7/Relu]:103
+	                 CONV_2D	         2001.557	    7.999	    8.038	  0.277%	 69.337%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/Branch_3/Conv2d_0b_1x1/Relu]:104
+	           CONCATENATION	         2009.597	    3.169	    3.167	  0.109%	 69.446%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6e/concat]:105
+	         AVERAGE_POOL_2D	         2012.765	    7.332	    7.370	  0.254%	 69.700%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_3/AvgPool_0a_3x3/AvgPool]:106
+	                 CONV_2D	         2020.137	   24.025	   24.085	  0.831%	 70.531%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_0/Conv2d_0a_1x1/Relu]:107
+	                 CONV_2D	         2044.223	   11.948	   11.941	  0.412%	 70.944%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_1/Conv2d_0a_1x1/Relu]:108
+	                 CONV_2D	         2056.166	   18.762	   18.732	  0.646%	 71.590%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_1/Conv2d_0b_1x7/Relu]:109
+	                 CONV_2D	         2074.900	   24.550	   24.434	  0.843%	 72.433%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_1/Conv2d_0c_7x1/Relu]:110
+	                 CONV_2D	         2099.335	   12.110	   11.955	  0.413%	 72.846%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_2/Conv2d_0a_1x1/Relu]:111
+	                 CONV_2D	         2111.292	   15.720	   15.697	  0.542%	 73.387%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_2/Conv2d_0b_7x1/Relu]:112
+	                 CONV_2D	         2126.990	   18.870	   18.806	  0.649%	 74.036%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_2/Conv2d_0c_1x7/Relu]:113
+	                 CONV_2D	         2145.797	   22.023	   22.109	  0.763%	 74.799%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_2/Conv2d_0d_7x1/Relu]:114
+	                 CONV_2D	         2167.908	   24.224	   24.289	  0.838%	 75.637%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_2/Conv2d_0e_1x7/Relu]:115
+	                 CONV_2D	         2192.199	    7.968	    8.020	  0.277%	 75.914%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/Branch_3/Conv2d_0b_1x1/Relu]:116
+	           CONCATENATION	         2200.221	    3.262	    3.170	  0.109%	 76.023%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6f/concat]:117
+	         AVERAGE_POOL_2D	         2203.392	    7.396	    7.371	  0.254%	 76.278%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_3/AvgPool_0a_3x3/AvgPool]:118
+	                 CONV_2D	         2210.764	   24.180	   24.130	  0.833%	 77.110%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_0/Conv2d_0a_1x1/Relu]:119
+	                 CONV_2D	         2234.896	   11.905	   11.955	  0.413%	 77.523%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_1/Conv2d_0a_1x1/Relu]:120
+	                 CONV_2D	         2246.853	   18.866	   18.797	  0.649%	 78.171%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_1/Conv2d_0b_1x7/Relu]:121
+	                 CONV_2D	         2265.652	   24.509	   24.438	  0.843%	 79.015%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_1/Conv2d_0c_7x1/Relu]:122
+	                 CONV_2D	         2290.091	   11.917	   11.925	  0.411%	 79.426%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_2/Conv2d_0a_1x1/Relu]:123
+	                 CONV_2D	         2302.017	   15.576	   15.629	  0.539%	 79.965%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_2/Conv2d_0b_7x1/Relu]:124
+	                 CONV_2D	         2317.648	   18.702	   18.696	  0.645%	 80.610%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_2/Conv2d_0c_1x7/Relu]:125
+	                 CONV_2D	         2336.346	   22.024	   22.066	  0.761%	 81.372%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_2/Conv2d_0d_7x1/Relu]:126
+	                 CONV_2D	         2358.413	   24.308	   24.293	  0.838%	 82.210%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_2/Conv2d_0e_1x7/Relu]:127
+	                 CONV_2D	         2382.708	    7.974	    7.994	  0.276%	 82.486%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/Branch_3/Conv2d_0b_1x1/Relu]:128
+	           CONCATENATION	         2390.703	    3.854	    3.834	  0.132%	 82.618%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6g/concat]:129
+	         AVERAGE_POOL_2D	         2394.538	    7.341	    7.401	  0.255%	 82.874%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_3/AvgPool_0a_3x3/AvgPool]:130
+	                 CONV_2D	         2401.941	   24.191	   24.182	  0.834%	 83.708%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_0/Conv2d_0a_1x1/Relu]:131
+	                 CONV_2D	         2426.124	   11.959	   11.976	  0.413%	 84.121%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_1/Conv2d_0a_1x1/Relu]:132
+	                 CONV_2D	         2438.101	   18.641	   18.668	  0.644%	 84.765%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_1/Conv2d_0b_1x7/Relu]:133
+	                 CONV_2D	         2456.771	   24.386	   24.412	  0.842%	 85.608%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_1/Conv2d_0c_7x1/Relu]:134
+	                 CONV_2D	         2481.185	   11.884	   11.935	  0.412%	 86.020%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_2/Conv2d_0a_1x1/Relu]:135
+	                 CONV_2D	         2493.122	   15.655	   15.645	  0.540%	 86.559%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_2/Conv2d_0b_7x1/Relu]:136
+	                 CONV_2D	         2508.768	   18.770	   18.739	  0.647%	 87.206%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_2/Conv2d_0c_1x7/Relu]:137
+	                 CONV_2D	         2527.508	   22.127	   22.110	  0.763%	 87.969%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_2/Conv2d_0d_7x1/Relu]:138
+	                 CONV_2D	         2549.620	   24.351	   24.343	  0.840%	 88.809%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_2/Conv2d_0e_1x7/Relu]:139
+	                 CONV_2D	         2573.965	    7.988	    8.018	  0.277%	 89.086%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/Branch_3/Conv2d_0b_1x1/Relu]:140
+	           CONCATENATION	         2581.984	    3.896	    3.898	  0.135%	 89.220%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6h/concat]:141
+	             MAX_POOL_2D	         2585.884	    0.456	    0.455	  0.016%	 89.236%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7a/Branch_2/MaxPool_1a_3x3/MaxPool]:142
+	                 CONV_2D	         2586.339	   11.928	   11.923	  0.411%	 89.647%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7a/Branch_0/Conv2d_0a_1x1/Relu]:143
+	                 CONV_2D	         2598.264	    4.593	    4.570	  0.158%	 89.805%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7a/Branch_0/Conv2d_1a_3x3/Relu]:144
+	                 CONV_2D	         2602.836	   15.890	   15.903	  0.549%	 90.354%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7a/Branch_1/Conv2d_0a_1x1/Relu]:145
+	                 CONV_2D	         2618.740	   27.472	   27.470	  0.948%	 91.302%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7a/Branch_1/Conv2d_0b_1x7/Relu]:146
+	                 CONV_2D	         2646.212	   34.593	   34.709	  1.198%	 92.499%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7a/Branch_1/Conv2d_0c_7x1/Relu]:147
+	                 CONV_2D	         2680.923	   12.992	   12.990	  0.448%	 92.947%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7a/Branch_1/Conv2d_1a_3x3/Relu]:148
+	           CONCATENATION	         2693.915	    0.562	    0.577	  0.020%	 92.967%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7a/concat]:149
+	         AVERAGE_POOL_2D	         2694.493	    2.121	    2.169	  0.075%	 93.042%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_3/AvgPool_0a_3x3/AvgPool]:150
+	                 CONV_2D	         2696.662	    5.414	    5.450	  0.188%	 93.230%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_0/Conv2d_0a_1x1/Relu]:151
+	                 CONV_2D	         2702.113	    8.314	    8.305	  0.287%	 93.517%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_1/Conv2d_0a_1x1/Relu]:152
+	                 CONV_2D	         2710.420	    4.155	    4.179	  0.144%	 93.661%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_1/Conv2d_0b_1x3/Relu]:153
+	                 CONV_2D	         2714.600	    4.075	    4.064	  0.140%	 93.801%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_1/Conv2d_0c_3x1/Relu]:154
+	           CONCATENATION	         2718.666	    0.249	    0.242	  0.008%	 93.810%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_1/concat]:155
+	                 CONV_2D	         2718.908	    8.200	    8.220	  0.284%	 94.093%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_2/Conv2d_0a_1x1/Relu]:156
+	                 CONV_2D	         2727.130	    7.296	    7.285	  0.251%	 94.345%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_2/Conv2d_0b_3x1/Relu]:157
+	                 CONV_2D	         2734.415	    9.606	    9.524	  0.329%	 94.673%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_2/Conv2d_0c_1x3/Relu]:158
+	                 CONV_2D	         2743.941	    5.455	    5.528	  0.191%	 94.864%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_2/Conv2d_0d_1x3/Relu]:159
+	                 CONV_2D	         2749.470	    5.501	    5.483	  0.189%	 95.053%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_2/Conv2d_0e_3x1/Relu]:160
+	           CONCATENATION	         2754.954	    0.245	    0.244	  0.008%	 95.062%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_2/concat]:161
+	                 CONV_2D	         2755.199	    5.435	    5.472	  0.189%	 95.250%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/Branch_3/Conv2d_0b_1x1/Relu]:162
+	           CONCATENATION	         2760.672	    0.922	    0.933	  0.032%	 95.283%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7b/concat]:163
+	         AVERAGE_POOL_2D	         2761.606	    2.230	    2.231	  0.077%	 95.360%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_3/AvgPool_0a_3x3/AvgPool]:164
+	                 CONV_2D	         2763.837	    5.464	    5.436	  0.188%	 95.547%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_0/Conv2d_0a_1x1/Relu]:165
+	                 CONV_2D	         2769.275	    8.289	    8.346	  0.288%	 95.835%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_1/Conv2d_0a_1x1/Relu]:166
+	                 CONV_2D	         2777.623	    4.224	    4.173	  0.144%	 95.979%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_1/Conv2d_0b_1x3/Relu]:167
+	                 CONV_2D	         2781.797	    4.110	    4.129	  0.142%	 96.122%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_1/Conv2d_0c_3x1/Relu]:168
+	           CONCATENATION	         2785.927	    0.244	    0.247	  0.009%	 96.130%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_1/concat]:169
+	                 CONV_2D	         2786.175	    8.299	    8.270	  0.285%	 96.416%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_2/Conv2d_0a_1x1/Relu]:170
+	                 CONV_2D	         2794.446	    7.369	    7.364	  0.254%	 96.670%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_2/Conv2d_0b_3x1/Relu]:171
+	                 CONV_2D	         2801.811	    9.634	    9.664	  0.333%	 97.003%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_2/Conv2d_0c_1x3/Relu]:172
+	                 CONV_2D	         2811.477	    5.433	    5.446	  0.188%	 97.191%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_2/Conv2d_0d_1x3/Relu]:173
+	                 CONV_2D	         2816.924	    5.478	    5.485	  0.189%	 97.380%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_2/Conv2d_0e_3x1/Relu]:174
+	           CONCATENATION	         2822.410	    0.245	    0.247	  0.009%	 97.389%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_2/concat]:175
+	                 CONV_2D	         2822.658	    5.479	    5.443	  0.188%	 97.577%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/Branch_3/Conv2d_0b_1x1/Relu]:176
+	           CONCATENATION	         2828.103	    0.907	    0.937	  0.032%	 97.609%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7c/concat]:177
+	         AVERAGE_POOL_2D	         2829.040	    2.266	    2.241	  0.077%	 97.686%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_3/AvgPool_0a_3x3/AvgPool]:178
+	                 CONV_2D	         2831.282	    5.416	    5.457	  0.188%	 97.875%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_0/Conv2d_0a_1x1/Relu]:179
+	                 CONV_2D	         2836.740	    8.333	    8.349	  0.288%	 98.163%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_1/Conv2d_0a_1x1/Relu]:180
+	                 CONV_2D	         2845.091	    4.183	    4.187	  0.144%	 98.307%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_1/Conv2d_0b_1x3/Relu]:181
+	                 CONV_2D	         2849.279	    4.146	    4.109	  0.142%	 98.449%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_1/Conv2d_0c_3x1/Relu]:182
+	           CONCATENATION	         2853.389	    0.233	    0.254	  0.009%	 98.458%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_1/concat]:183
+	                 CONV_2D	         2853.644	    8.334	    8.299	  0.286%	 98.744%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_2/Conv2d_0a_1x1/Relu]:184
+	                 CONV_2D	         2861.944	    7.309	    7.371	  0.254%	 98.998%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_2/Conv2d_0b_3x1/Relu]:185
+	                 CONV_2D	         2869.317	    9.678	    9.667	  0.334%	 99.332%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_2/Conv2d_0c_1x3/Relu]:186
+	                 CONV_2D	         2878.985	    5.456	    5.476	  0.189%	 99.521%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_2/Conv2d_0d_1x3/Relu]:187
+	                 CONV_2D	         2884.462	    5.529	    5.501	  0.190%	 99.711%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_2/Conv2d_0e_3x1/Relu]:188
+	           CONCATENATION	         2889.965	    0.239	    0.248	  0.009%	 99.719%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_2/concat]:189
+	                 CONV_2D	         2890.213	    5.411	    5.449	  0.188%	 99.907%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/Branch_3/Conv2d_0b_1x1/Relu]:190
+	           CONCATENATION	         2895.663	    0.907	    0.924	  0.032%	 99.939%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_7d/concat]:191
+	         AVERAGE_POOL_2D	         2896.588	    0.248	    0.255	  0.009%	 99.948%	     0.000	        1	[InceptionV4/Logits/AvgPool_1a/AvgPool]:192
+	         FULLY_CONNECTED	         2896.843	    1.539	    1.481	  0.051%	 99.999%	     0.000	        1	[InceptionV4/Logits/Logits/BiasAdd]:193
+	                 SOFTMAX	         2898.325	    0.027	    0.025	  0.001%	100.000%	     0.000	        1	[InceptionV4/Logits/Predictions]:194
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	                 CONV_2D	           73.296	   99.926	   99.842	  3.445%	  3.445%	     0.000	        1	[InceptionV4/InceptionV4/Conv2d_2b_3x3/Relu]:2
+	                 CONV_2D	         1116.976	   99.210	   99.160	  3.422%	  6.867%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6a/Branch_1/Conv2d_0b_3x3/Relu]:55
+	                 CONV_2D	          488.696	   83.823	   83.744	  2.890%	  9.756%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_5a/Branch_0/Conv2d_1a_3x3/Relu]:14
+	                 CONV_2D	         1014.962	   81.827	   81.765	  2.821%	 12.578%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_6a/Branch_0/Conv2d_1a_3x3/Relu]:53
+	                 CONV_2D	          175.366	   68.841	   68.861	  2.376%	 14.954%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_3a/Branch_1/Conv2d_0a_3x3/Relu]:4
+	                 CONV_2D	          265.838	   64.563	   64.623	  2.230%	 17.184%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_0/Conv2d_1a_3x3/Relu]:7
+	                 CONV_2D	          415.717	   64.482	   64.606	  2.229%	 19.413%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_1/Conv2d_1a_3x3/Relu]:11
+	                 CONV_2D	           13.593	   59.927	   59.700	  2.060%	 21.473%	     0.000	        1	[InceptionV4/InceptionV4/Conv2d_2a_3x3/Relu]:1
+	                 CONV_2D	          380.027	   35.591	   35.689	  1.231%	 22.705%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_1/Conv2d_0c_7x1/Relu]:10
+	                 CONV_2D	          345.017	   35.039	   35.009	  1.208%	 23.913%	     0.000	        1	[InceptionV4/InceptionV4/Mixed_4a/Branch_1/Conv2d_0b_1x7/Relu]:9
+
+Number of nodes executed: 195
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	                 CONV_2D	      149	  2706.939	    93.408%	    93.408%	     0.000	      149
+	         AVERAGE_POOL_2D	       15	   113.380	     3.912%	    97.321%	     0.000	       15
+	           CONCATENATION	       25	    71.380	     2.463%	    99.784%	     0.000	       25
+	             MAX_POOL_2D	        4	     4.759	     0.164%	    99.948%	     0.000	        4
+	         FULLY_CONNECTED	        1	     1.480	     0.051%	    99.999%	     0.000	        1
+	                 SOFTMAX	        1	     0.025	     0.001%	   100.000%	     0.000	        1
+
+Timings (microseconds): count=50 first=2897899 curr=2898482 min=2896904 max=2899550 avg=2.89805e+06 std=651
+Memory (bytes): count=0
+195 nodes observed
+
+
+

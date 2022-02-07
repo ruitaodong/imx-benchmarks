@@ -1,0 +1,68 @@
+STARTING!
+Log parameter values verbosely: [0]
+Graph: [mobilenet_v1_1.0_224_quant/mobilenet_v1_1.0_224_quant.tflite]
+Enable op profiling: [1]
+External delegate path: [/usr/lib/libvx_delegate.so]
+Loaded model mobilenet_v1_1.0_224_quant/mobilenet_v1_1.0_224_quant.tflite
+Vx delegate: allowed_builtin_code set to 0.
+Vx delegate: error_during_init set to 0.
+Vx delegate: error_during_prepare set to 0.
+Vx delegate: error_during_invoke set to 0.
+EXTERNAL delegate created.
+Going to apply 1 delegates one after another.
+Explicitly applied EXTERNAL delegate, and the model graph will be completely executed by the delegate.
+The input model file size (MB): 4.27635
+Initialized session in 12.434ms.
+Running benchmark for at least 1 iterations and at least 0.5 seconds but terminate if exceeding 150 seconds.
+W [HandleLayoutInfer:257]Op 18: default layout inference pass.
+count=1 curr=4625131
+
+Running benchmark for at least 50 iterations and at least 1 seconds but terminate if exceeding 150 seconds.
+count=379 first=2542 curr=2543 min=2471 max=2586 avg=2525.59 std=13
+
+Inference timings in us: Init: 12434, First inference: 4625131, Warmup (avg): 4.62513e+06, Inference (avg): 2525.59
+Note: as the benchmark tool itself affects memory footprint, the following is only APPROXIMATE to the actual memory footprint of the model at runtime. Take the information at your discretion.
+Peak memory footprint (MB): init=7.26953 overall=34.3164
+Profiling Info for Benchmark Initialization:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	 ModifyGraphWithDelegate	            0.000	    1.185	    1.185	 93.973%	 93.973%	     0.000	        1	ModifyGraphWithDelegate/0
+	         AllocateTensors	            1.176	    0.073	    0.038	  6.027%	100.000%	     0.000	        2	AllocateTensors/0
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	 ModifyGraphWithDelegate	            0.000	    1.185	    1.185	 93.973%	 93.973%	     0.000	        1	ModifyGraphWithDelegate/0
+	         AllocateTensors	            1.176	    0.073	    0.038	  6.027%	100.000%	     0.000	        2	AllocateTensors/0
+
+Number of nodes executed: 2
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	 ModifyGraphWithDelegate	        1	     1.185	    93.973%	    93.973%	     0.000	        1
+	         AllocateTensors	        1	     0.076	     6.027%	   100.000%	     0.000	        2
+
+Timings (microseconds): count=1 curr=1261
+Memory (bytes): count=0
+2 nodes observed
+
+
+
+Operator-wise Profiling Info for Regular Benchmark Runs:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	             Vx Delegate	            0.010	    2.509	    2.504	100.000%	100.000%	     0.000	        1	[MobilenetV1/Predictions/Reshape_1]:31
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	             Vx Delegate	            0.010	    2.509	    2.504	100.000%	100.000%	     0.000	        1	[MobilenetV1/Predictions/Reshape_1]:31
+
+Number of nodes executed: 1
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	             Vx Delegate	        1	     2.503	   100.000%	   100.000%	     0.000	        1
+
+Timings (microseconds): count=379 first=2509 curr=2523 min=2456 max=2565 avg=2503.71 std=13
+Memory (bytes): count=0
+1 nodes observed
+
+
+

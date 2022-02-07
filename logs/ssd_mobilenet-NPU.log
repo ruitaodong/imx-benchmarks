@@ -1,0 +1,70 @@
+STARTING!
+Log parameter values verbosely: [0]
+Graph: [ssd_mobilenet_v1_quantized_300x300_coco14_sync_2018_07_18/model.tflite]
+Enable op profiling: [1]
+External delegate path: [/usr/lib/libvx_delegate.so]
+Loaded model ssd_mobilenet_v1_quantized_300x300_coco14_sync_2018_07_18/model.tflite
+Vx delegate: allowed_builtin_code set to 0.
+Vx delegate: error_during_init set to 0.
+Vx delegate: error_during_prepare set to 0.
+Vx delegate: error_during_invoke set to 0.
+EXTERNAL delegate created.
+Going to apply 1 delegates one after another.
+Explicitly applied EXTERNAL delegate, and the model graph will be partially executed by the delegate w/ 1 delegate kernels.
+The input model file size (MB): 6.89901
+Initialized session in 14.432ms.
+Running benchmark for at least 1 iterations and at least 0.5 seconds but terminate if exceeding 150 seconds.
+count=1 curr=8454279
+
+Running benchmark for at least 50 iterations and at least 1 seconds but terminate if exceeding 150 seconds.
+count=77 first=12656 curr=12862 min=12656 max=12920 avg=12822.1 std=41
+
+Inference timings in us: Init: 14432, First inference: 8454279, Warmup (avg): 8.45428e+06, Inference (avg): 12822.1
+Note: as the benchmark tool itself affects memory footprint, the following is only APPROXIMATE to the actual memory footprint of the model at runtime. Take the information at your discretion.
+Peak memory footprint (MB): init=8.5625 overall=50.668
+Profiling Info for Benchmark Initialization:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	 ModifyGraphWithDelegate	            0.943	    1.819	    0.935	 93.640%	 93.640%	     0.000	        2	ModifyGraphWithDelegate/0
+	         AllocateTensors	            1.854	    0.093	    0.042	  6.360%	100.000%	     0.000	        3	AllocateTensors/0
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	 ModifyGraphWithDelegate	            0.943	    1.819	    0.935	 93.640%	 93.640%	     0.000	        2	ModifyGraphWithDelegate/0
+	         AllocateTensors	            1.854	    0.093	    0.042	  6.360%	100.000%	     0.000	        3	AllocateTensors/0
+
+Number of nodes executed: 2
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	 ModifyGraphWithDelegate	        1	     1.870	    93.640%	    93.640%	     0.000	        2
+	         AllocateTensors	        1	     0.127	     6.360%	   100.000%	     0.000	        3
+
+Timings (microseconds): count=1 curr=1997
+Memory (bytes): count=0
+2 nodes observed
+
+
+
+Operator-wise Profiling Info for Regular Benchmark Runs:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	             Vx Delegate	            0.015	   10.725	   10.864	 85.049%	 85.049%	     0.000	        1	[Squeeze, convert_scores]:64
+	TFLite_Detection_PostProcess	           10.880	    1.870	    1.910	 14.951%	100.000%	     0.000	        1	[TFLite_Detection_PostProcess, TFLite_Detection_PostProcess:1, TFLite_Detection_PostProcess:2, TFLite_Detection_PostProcess:3]:63
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	             Vx Delegate	            0.015	   10.725	   10.864	 85.049%	 85.049%	     0.000	        1	[Squeeze, convert_scores]:64
+	TFLite_Detection_PostProcess	           10.880	    1.870	    1.910	 14.951%	100.000%	     0.000	        1	[TFLite_Detection_PostProcess, TFLite_Detection_PostProcess:1, TFLite_Detection_PostProcess:2, TFLite_Detection_PostProcess:3]:63
+
+Number of nodes executed: 2
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	             Vx Delegate	        1	    10.864	    85.054%	    85.054%	     0.000	        1
+	TFLite_Detection_PostProcess	        1	     1.909	    14.946%	   100.000%	     0.000	        1
+
+Timings (microseconds): count=77 first=12595 curr=12763 min=12595 max=12872 avg=12773.9 std=42
+Memory (bytes): count=0
+2 nodes observed
+
+
+
