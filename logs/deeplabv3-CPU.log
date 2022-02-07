@@ -1,0 +1,114 @@
+STARTING!
+Log parameter values verbosely: [0]
+Graph: [lite-model_deeplabv3-mobilenetv2_dm05-float16_1_default_2.tflite]
+Enable op profiling: [1]
+Loaded model lite-model_deeplabv3-mobilenetv2_dm05-float16_1_default_2.tflite
+Going to apply 0 delegates one after another.
+The input model file size (MB): 1.42972
+Initialized session in 108.774ms.
+Running benchmark for at least 1 iterations and at least 0.5 seconds but terminate if exceeding 150 seconds.
+count=1 curr=1216820
+
+Running benchmark for at least 50 iterations and at least 1 seconds but terminate if exceeding 150 seconds.
+count=50 first=1051421 curr=1049947 min=1048761 max=1052337 avg=1.05037e+06 std=756
+
+Inference timings in us: Init: 108774, First inference: 1216820, Warmup (avg): 1.21682e+06, Inference (avg): 1.05037e+06
+Note: as the benchmark tool itself affects memory footprint, the following is only APPROXIMATE to the actual memory footprint of the model at runtime. Take the information at your discretion.
+Peak memory footprint (MB): init=10.9102 overall=194.328
+Profiling Info for Benchmark Initialization:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	 ModifyGraphWithDelegate	            0.000	   41.047	   41.047	 99.190%	 99.190%	  7116.000	        1	ModifyGraphWithDelegate/0
+	         AllocateTensors	           40.880	    0.331	    0.168	  0.810%	100.000%	     0.000	        2	AllocateTensors/0
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	 ModifyGraphWithDelegate	            0.000	   41.047	   41.047	 99.190%	 99.190%	  7116.000	        1	ModifyGraphWithDelegate/0
+	         AllocateTensors	           40.880	    0.331	    0.168	  0.810%	100.000%	     0.000	        2	AllocateTensors/0
+
+Number of nodes executed: 2
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	 ModifyGraphWithDelegate	        1	    41.047	    99.190%	    99.190%	  7116.000	        1
+	         AllocateTensors	        1	     0.335	     0.810%	   100.000%	     0.000	        2
+
+Timings (microseconds): count=1 curr=41382
+Memory (bytes): count=0
+2 nodes observed
+
+
+
+Operator-wise Profiling Info for Regular Benchmark Runs:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	   TfLiteXNNPackDelegate	            0.034	  143.159	  143.027	 13.618%	 13.618%	     0.000	        1	[tfl.conv_2d13, tfl.conv_2d14, std.constant19_dequantize, MobilenetV2/expanded_conv_14/depthwise/BatchNorm/FusedBatchNorm_dequantize, MobilenetV2/expanded_conv_16/depthwise/depthwise1_dequantize, std.constant70_dequantize, std.constant27_dequantize, std.constant73_dequantize, MobilenetV2/expanded_conv_7/depthwise/BatchNorm/FusedBatchNorm_dequantize, MobilenetV2/expanded_conv_10/depthwise/depthwise1_dequantize, std.constant29_dequantize, MobilenetV2/expanded_conv_11/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant34_dequantize, std.constant15_dequantize, MobilenetV2/expanded_conv_15/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant64_dequantize, std.constant24_dequantize, MobilenetV2/expanded_conv_9/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant78_dequantize, std.constant67_dequantize, std.constant17_dequantize, logits/semantic/Conv2D_dequantize, MobilenetV2/expanded_conv_16/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant26_dequantize, std.constant81_dequantize, MobilenetV2/expanded_conv_12/depthwise/BatchNorm/FusedBatchNorm_dequantize, MobilenetV2/expanded_conv_15/depthwise/depthwise_dequantize, std.constant72_dequantize, MobilenetV2/expanded_conv_10/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_13/depthwise/BatchNorm/FusedBatchNorm1_dequantize, MobilenetV2/expanded_conv_16/depthwise/depthwise_dequantize, std.constant61_dequantize, MobilenetV2/expanded_conv_8/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant22_dequantize, std.constant75_dequantize, std.constant69_dequantize, MobilenetV2/expanded_conv_13/depthwise/depthwise1_dequantize, MobilenetV2/expanded_conv_8/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_16/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant36_dequantize, MobilenetV2/expanded_conv_10/depthwise/BatchNorm/FusedBatchNorm1_dequantize, MobilenetV2/expanded_conv_14/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_9/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_9/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant63_dequantize, std.constant33_dequantize, MobilenetV2/expanded_conv_13/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant77_dequantize, std.constant23_dequantize, std.constant25_dequantize, std.constant66_dequantize, MobilenetV2/expanded_conv_7/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_14/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant80_dequantize, MobilenetV2/expanded_conv_11/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant30_dequantize, std.constant20_dequantize, std.constant71_dequantize, std.constant60_dequantize, std.constant32_dequantize, MobilenetV2/expanded_conv_7/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant21_dequantize, std.constant74_dequantize, MobilenetV2/expanded_conv_13/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_15/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant65_dequantize, std.constant16_dequantize, std.constant35_dequantize, MobilenetV2/expanded_conv_10/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant28_dequantize, std.constant18_dequantize, std.constant68_dequantize, std.constant76_dequantize, MobilenetV2/expanded_conv_8/depthwise/BatchNorm/FusedBatchNorm1_dequantize, MobilenetV2/expanded_conv_11/depthwise/depthwise_dequantize, std.constant59_dequantize, MobilenetV2/expanded_conv_12/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant31_dequantize, MobilenetV2/expanded_conv_12/depthwise/depthwise_dequantize, std.constant79_dequantize, std.constant62_dequantize]:233
+	       SPACE_TO_BATCH_ND	          143.062	    4.419	    4.397	  0.419%	 14.037%	     0.000	        1	[MobilenetV2/expanded_conv_7/depthwise/depthwise/SpaceToBatchND]:69
+	   TfLiteXNNPackDelegate	          147.460	    8.649	    8.647	  0.823%	 14.860%	     0.000	        1	[MobilenetV2/expanded_conv_7/depthwise/depthwise1]:234
+	       BATCH_TO_SPACE_ND	          156.108	    1.384	    1.405	  0.134%	 14.994%	     0.000	        1	[MobilenetV2/expanded_conv_7/depthwise/depthwise/BatchToSpaceND]:73
+	   TfLiteXNNPackDelegate	          157.515	   17.443	   16.372	  1.559%	 16.553%	     0.000	        1	[MobilenetV2/expanded_conv_7/add, tfl.conv_2d16]:235
+	       SPACE_TO_BATCH_ND	          173.888	    4.372	    4.385	  0.417%	 16.970%	     0.000	        1	[MobilenetV2/expanded_conv_8/depthwise/depthwise/SpaceToBatchND]:85
+	   TfLiteXNNPackDelegate	          178.274	    8.693	    8.659	  0.824%	 17.795%	     0.000	        1	[MobilenetV2/expanded_conv_8/depthwise/depthwise1]:236
+	       BATCH_TO_SPACE_ND	          186.934	    1.387	    1.412	  0.134%	 17.929%	     0.000	        1	[MobilenetV2/expanded_conv_8/depthwise/depthwise/BatchToSpaceND]:88
+	   TfLiteXNNPackDelegate	          188.348	   16.197	   16.215	  1.544%	 19.473%	     0.000	        1	[MobilenetV2/expanded_conv_8/add, tfl.conv_2d18]:237
+	       SPACE_TO_BATCH_ND	          204.564	    4.415	    4.392	  0.418%	 19.892%	     0.000	        1	[MobilenetV2/expanded_conv_9/depthwise/depthwise/SpaceToBatchND]:100
+	   TfLiteXNNPackDelegate	          208.958	    8.628	    8.639	  0.823%	 20.714%	     0.000	        1	[MobilenetV2/expanded_conv_9/depthwise/depthwise1]:238
+	       BATCH_TO_SPACE_ND	          217.598	    1.471	    1.391	  0.132%	 20.847%	     0.000	        1	[MobilenetV2/expanded_conv_9/depthwise/depthwise/BatchToSpaceND]:103
+	   TfLiteXNNPackDelegate	          218.990	   16.351	   16.310	  1.553%	 22.400%	     0.000	        1	[tfl.conv_2d20]:239
+	       SPACE_TO_BATCH_ND	          235.302	    4.387	    4.393	  0.418%	 22.818%	     0.000	        1	[MobilenetV2/expanded_conv_10/depthwise/depthwise/SpaceToBatchND]:115
+	   TfLiteXNNPackDelegate	          239.696	    8.639	    8.619	  0.821%	 23.639%	     0.000	        1	[MobilenetV2/expanded_conv_10/depthwise/depthwise2]:240
+	       BATCH_TO_SPACE_ND	          248.317	    1.397	    1.398	  0.133%	 23.772%	     0.000	        1	[MobilenetV2/expanded_conv_10/depthwise/depthwise/BatchToSpaceND]:118
+	   TfLiteXNNPackDelegate	          249.716	   25.066	   25.126	  2.392%	 26.164%	     0.000	        1	[tfl.conv_2d21, tfl.conv_2d22]:241
+	       SPACE_TO_BATCH_ND	          274.844	    3.553	    3.524	  0.336%	 26.500%	     0.000	        1	[MobilenetV2/expanded_conv_11/depthwise/depthwise/SpaceToBatchND]:129
+	   TfLiteXNNPackDelegate	          278.370	   17.231	   17.123	  1.630%	 28.130%	     0.000	        1	[MobilenetV2/expanded_conv_11/depthwise/depthwise1]:242
+	       BATCH_TO_SPACE_ND	          295.494	    1.879	    1.918	  0.183%	 28.313%	     0.000	        1	[MobilenetV2/expanded_conv_11/depthwise/depthwise/BatchToSpaceND]:133
+	   TfLiteXNNPackDelegate	          297.413	   32.571	   32.509	  3.095%	 31.408%	     0.000	        1	[MobilenetV2/expanded_conv_11/add, tfl.conv_2d24]:243
+	       SPACE_TO_BATCH_ND	          329.924	    3.469	    3.522	  0.335%	 31.744%	     0.000	        1	[MobilenetV2/expanded_conv_12/depthwise/depthwise/SpaceToBatchND]:145
+	   TfLiteXNNPackDelegate	          333.448	   16.980	   17.134	  1.631%	 33.375%	     0.000	        1	[MobilenetV2/expanded_conv_12/depthwise/depthwise1]:244
+	       BATCH_TO_SPACE_ND	          350.583	    1.885	    1.920	  0.183%	 33.558%	     0.000	        1	[MobilenetV2/expanded_conv_12/depthwise/depthwise/BatchToSpaceND]:148
+	   TfLiteXNNPackDelegate	          352.504	   32.680	   32.630	  3.107%	 36.665%	     0.000	        1	[tfl.conv_2d26]:245
+	       SPACE_TO_BATCH_ND	          385.136	    3.561	    3.517	  0.335%	 37.000%	     0.000	        1	[MobilenetV2/expanded_conv_13/depthwise/depthwise/SpaceToBatchND]:160
+	   TfLiteXNNPackDelegate	          388.654	   17.201	   17.134	  1.631%	 38.631%	     0.000	        1	[MobilenetV2/expanded_conv_13/depthwise/depthwise2]:246
+	       BATCH_TO_SPACE_ND	          405.789	    1.885	    1.913	  0.182%	 38.813%	     0.000	        1	[MobilenetV2/expanded_conv_13/depthwise/depthwise/BatchToSpaceND]:163
+	   TfLiteXNNPackDelegate	          407.703	   59.607	   59.605	  5.675%	 44.488%	     0.000	        1	[tfl.conv_2d27, tfl.conv_2d28]:247
+	       SPACE_TO_BATCH_ND	          467.310	    4.742	    4.739	  0.451%	 44.940%	     0.000	        1	[MobilenetV2/expanded_conv_14/depthwise/depthwise/SpaceToBatchND]:174
+	   TfLiteXNNPackDelegate	          472.050	   41.561	   41.612	  3.962%	 48.902%	     0.000	        1	[MobilenetV2/expanded_conv_14/depthwise/depthwise1]:248
+	       BATCH_TO_SPACE_ND	          513.664	    3.337	    3.244	  0.309%	 49.211%	     0.000	        1	[MobilenetV2/expanded_conv_14/depthwise/depthwise/BatchToSpaceND]:178
+	   TfLiteXNNPackDelegate	          516.910	   78.435	   78.380	  7.463%	 56.674%	     0.000	        1	[MobilenetV2/expanded_conv_14/add, tfl.conv_2d30]:249
+	       SPACE_TO_BATCH_ND	          595.292	    4.708	    4.738	  0.451%	 57.125%	     0.000	        1	[MobilenetV2/expanded_conv_15/depthwise/depthwise/SpaceToBatchND]:190
+	   TfLiteXNNPackDelegate	          600.030	   41.598	   41.619	  3.963%	 61.088%	     0.000	        1	[MobilenetV2/expanded_conv_15/depthwise/depthwise1]:250
+	       BATCH_TO_SPACE_ND	          641.651	    3.195	    3.239	  0.308%	 61.396%	     0.000	        1	[MobilenetV2/expanded_conv_15/depthwise/depthwise/BatchToSpaceND]:193
+	   TfLiteXNNPackDelegate	          644.890	   78.364	   78.270	  7.453%	 68.849%	     0.000	        1	[tfl.conv_2d32]:251
+	       SPACE_TO_BATCH_ND	          723.162	    4.705	    4.730	  0.450%	 69.299%	     0.000	        1	[MobilenetV2/expanded_conv_16/depthwise/depthwise/SpaceToBatchND]:205
+	   TfLiteXNNPackDelegate	          727.893	   41.509	   41.788	  3.979%	 73.278%	     0.000	        1	[MobilenetV2/expanded_conv_16/depthwise/depthwise2]:252
+	       BATCH_TO_SPACE_ND	          769.682	    3.231	    3.245	  0.309%	 73.587%	     0.000	        1	[MobilenetV2/expanded_conv_16/depthwise/depthwise/BatchToSpaceND]:208
+	   TfLiteXNNPackDelegate	          772.928	  116.422	  116.531	 11.096%	 84.682%	     0.000	        1	[ResizeBilinear, tfl.conv_2d35]:253
+	           CONCATENATION	          889.460	    3.961	    3.930	  0.374%	 85.057%	     0.000	        1	[concat]:224
+	   TfLiteXNNPackDelegate	          893.392	  156.978	  156.943	 14.943%	100.000%	     0.000	        1	[ResizeBilinear_2]:254
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	   TfLiteXNNPackDelegate	          893.392	  156.978	  156.943	 14.943%	 14.943%	     0.000	        1	[ResizeBilinear_2]:254
+	   TfLiteXNNPackDelegate	            0.034	  143.159	  143.027	 13.618%	 28.562%	     0.000	        1	[tfl.conv_2d13, tfl.conv_2d14, std.constant19_dequantize, MobilenetV2/expanded_conv_14/depthwise/BatchNorm/FusedBatchNorm_dequantize, MobilenetV2/expanded_conv_16/depthwise/depthwise1_dequantize, std.constant70_dequantize, std.constant27_dequantize, std.constant73_dequantize, MobilenetV2/expanded_conv_7/depthwise/BatchNorm/FusedBatchNorm_dequantize, MobilenetV2/expanded_conv_10/depthwise/depthwise1_dequantize, std.constant29_dequantize, MobilenetV2/expanded_conv_11/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant34_dequantize, std.constant15_dequantize, MobilenetV2/expanded_conv_15/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant64_dequantize, std.constant24_dequantize, MobilenetV2/expanded_conv_9/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant78_dequantize, std.constant67_dequantize, std.constant17_dequantize, logits/semantic/Conv2D_dequantize, MobilenetV2/expanded_conv_16/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant26_dequantize, std.constant81_dequantize, MobilenetV2/expanded_conv_12/depthwise/BatchNorm/FusedBatchNorm_dequantize, MobilenetV2/expanded_conv_15/depthwise/depthwise_dequantize, std.constant72_dequantize, MobilenetV2/expanded_conv_10/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_13/depthwise/BatchNorm/FusedBatchNorm1_dequantize, MobilenetV2/expanded_conv_16/depthwise/depthwise_dequantize, std.constant61_dequantize, MobilenetV2/expanded_conv_8/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant22_dequantize, std.constant75_dequantize, std.constant69_dequantize, MobilenetV2/expanded_conv_13/depthwise/depthwise1_dequantize, MobilenetV2/expanded_conv_8/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_16/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant36_dequantize, MobilenetV2/expanded_conv_10/depthwise/BatchNorm/FusedBatchNorm1_dequantize, MobilenetV2/expanded_conv_14/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_9/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_9/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant63_dequantize, std.constant33_dequantize, MobilenetV2/expanded_conv_13/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant77_dequantize, std.constant23_dequantize, std.constant25_dequantize, std.constant66_dequantize, MobilenetV2/expanded_conv_7/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_14/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant80_dequantize, MobilenetV2/expanded_conv_11/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant30_dequantize, std.constant20_dequantize, std.constant71_dequantize, std.constant60_dequantize, std.constant32_dequantize, MobilenetV2/expanded_conv_7/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant21_dequantize, std.constant74_dequantize, MobilenetV2/expanded_conv_13/depthwise/depthwise_dequantize, MobilenetV2/expanded_conv_15/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant65_dequantize, std.constant16_dequantize, std.constant35_dequantize, MobilenetV2/expanded_conv_10/depthwise/BatchNorm/FusedBatchNorm_dequantize, std.constant28_dequantize, std.constant18_dequantize, std.constant68_dequantize, std.constant76_dequantize, MobilenetV2/expanded_conv_8/depthwise/BatchNorm/FusedBatchNorm1_dequantize, MobilenetV2/expanded_conv_11/depthwise/depthwise_dequantize, std.constant59_dequantize, MobilenetV2/expanded_conv_12/depthwise/BatchNorm/FusedBatchNorm1_dequantize, std.constant31_dequantize, MobilenetV2/expanded_conv_12/depthwise/depthwise_dequantize, std.constant79_dequantize, std.constant62_dequantize]:233
+	   TfLiteXNNPackDelegate	          772.928	  116.422	  116.531	 11.096%	 39.657%	     0.000	        1	[ResizeBilinear, tfl.conv_2d35]:253
+	   TfLiteXNNPackDelegate	          516.910	   78.435	   78.380	  7.463%	 47.121%	     0.000	        1	[MobilenetV2/expanded_conv_14/add, tfl.conv_2d30]:249
+	   TfLiteXNNPackDelegate	          644.890	   78.364	   78.270	  7.453%	 54.573%	     0.000	        1	[tfl.conv_2d32]:251
+	   TfLiteXNNPackDelegate	          407.703	   59.607	   59.605	  5.675%	 60.248%	     0.000	        1	[tfl.conv_2d27, tfl.conv_2d28]:247
+	   TfLiteXNNPackDelegate	          727.893	   41.509	   41.788	  3.979%	 64.227%	     0.000	        1	[MobilenetV2/expanded_conv_16/depthwise/depthwise2]:252
+	   TfLiteXNNPackDelegate	          600.030	   41.598	   41.619	  3.963%	 68.190%	     0.000	        1	[MobilenetV2/expanded_conv_15/depthwise/depthwise1]:250
+	   TfLiteXNNPackDelegate	          472.050	   41.561	   41.612	  3.962%	 72.152%	     0.000	        1	[MobilenetV2/expanded_conv_14/depthwise/depthwise1]:248
+	   TfLiteXNNPackDelegate	          352.504	   32.680	   32.630	  3.107%	 75.259%	     0.000	        1	[tfl.conv_2d26]:245
+
+Number of nodes executed: 43
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	   TfLiteXNNPackDelegate	       22	   982.881	    93.588%	    93.588%	     0.000	       22
+	       SPACE_TO_BATCH_ND	       10	    42.331	     4.031%	    97.618%	     0.000	       10
+	       BATCH_TO_SPACE_ND	       10	    21.082	     2.007%	    99.626%	     0.000	       10
+	           CONCATENATION	        1	     3.930	     0.374%	   100.000%	     0.000	        1
+
+Timings (microseconds): count=50 first=1051305 curr=1049827 min=1048635 max=1052207 avg=1.05024e+06 std=757
+Memory (bytes): count=0
+43 nodes observed
+
+
+
