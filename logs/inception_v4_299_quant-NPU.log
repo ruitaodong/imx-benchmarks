@@ -2,7 +2,7 @@ STARTING!
 Log parameter values verbosely: [0]
 Graph: [inception_v4_299_quant_20181026/inception_v4_299_quant.tflite]
 Enable op profiling: [1]
-External delegate path: [/usr/lib/libvx_delegate.so]
+External delegate path: [bin/libvx_delegate.so]
 Loaded model inception_v4_299_quant_20181026/inception_v4_299_quant.tflite
 Vx delegate: allowed_builtin_code set to 0.
 Vx delegate: error_during_init set to 0.
@@ -12,34 +12,34 @@ EXTERNAL delegate created.
 Going to apply 1 delegates one after another.
 Explicitly applied EXTERNAL delegate, and the model graph will be completely executed by the delegate.
 The input model file size (MB): 42.8555
-Initialized session in 17.554ms.
+Initialized session in 19.344ms.
 Running benchmark for at least 1 iterations and at least 0.5 seconds but terminate if exceeding 150 seconds.
-count=1 curr=45893897
+count=1 curr=45427348
 
 Running benchmark for at least 50 iterations and at least 1 seconds but terminate if exceeding 150 seconds.
-count=50 first=32565 curr=32486 min=32469 max=32606 avg=32511.5 std=30
+count=50 first=129868 curr=128971 min=128294 max=864252 avg=210211 std=168681
 
-Inference timings in us: Init: 17554, First inference: 45893897, Warmup (avg): 4.58939e+07, Inference (avg): 32511.5
+Inference timings in us: Init: 19344, First inference: 45427348, Warmup (avg): 4.54273e+07, Inference (avg): 210211
 Note: as the benchmark tool itself affects memory footprint, the following is only APPROXIMATE to the actual memory footprint of the model at runtime. Take the information at your discretion.
-Peak memory footprint (MB): init=15.7891 overall=116.148
+Peak memory footprint (MB): init=16.543 overall=116.676
 Profiling Info for Benchmark Initialization:
 ============================== Run Order ==============================
 	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
-	 ModifyGraphWithDelegate	            0.000	    3.598	    3.598	 95.742%	 95.742%	   484.000	        1	ModifyGraphWithDelegate/0
-	         AllocateTensors	            3.608	    0.154	    0.080	  4.258%	100.000%	     0.000	        2	AllocateTensors/0
+	 ModifyGraphWithDelegate	            0.000	    3.314	    3.314	 95.780%	 95.780%	   668.000	        1	ModifyGraphWithDelegate/0
+	         AllocateTensors	            3.276	    0.142	    0.073	  4.220%	100.000%	     0.000	        2	AllocateTensors/0
 
 ============================== Top by Computation Time ==============================
 	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
-	 ModifyGraphWithDelegate	            0.000	    3.598	    3.598	 95.742%	 95.742%	   484.000	        1	ModifyGraphWithDelegate/0
-	         AllocateTensors	            3.608	    0.154	    0.080	  4.258%	100.000%	     0.000	        2	AllocateTensors/0
+	 ModifyGraphWithDelegate	            0.000	    3.314	    3.314	 95.780%	 95.780%	   668.000	        1	ModifyGraphWithDelegate/0
+	         AllocateTensors	            3.276	    0.142	    0.073	  4.220%	100.000%	     0.000	        2	AllocateTensors/0
 
 Number of nodes executed: 2
 ============================== Summary by node type ==============================
 	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
-	 ModifyGraphWithDelegate	        1	     3.598	    95.742%	    95.742%	   484.000	        1
-	         AllocateTensors	        1	     0.160	     4.258%	   100.000%	     0.000	        2
+	 ModifyGraphWithDelegate	        1	     3.314	    95.780%	    95.780%	   668.000	        1
+	         AllocateTensors	        1	     0.146	     4.220%	   100.000%	     0.000	        2
 
-Timings (microseconds): count=1 curr=3758
+Timings (microseconds): count=1 curr=3460
 Memory (bytes): count=0
 2 nodes observed
 
@@ -48,18 +48,18 @@ Memory (bytes): count=0
 Operator-wise Profiling Info for Regular Benchmark Runs:
 ============================== Run Order ==============================
 	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
-	             Vx Delegate	            0.018	   32.513	   32.466	100.000%	100.000%	     0.000	        1	[InceptionV4/Logits/Predictions]:195
+	             Vx Delegate	            0.019	  129.822	  210.169	100.000%	100.000%	     0.000	        1	[InceptionV4/Logits/Predictions]:195
 
 ============================== Top by Computation Time ==============================
 	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
-	             Vx Delegate	            0.018	   32.513	   32.466	100.000%	100.000%	     0.000	        1	[InceptionV4/Logits/Predictions]:195
+	             Vx Delegate	            0.019	  129.822	  210.169	100.000%	100.000%	     0.000	        1	[InceptionV4/Logits/Predictions]:195
 
 Number of nodes executed: 1
 ============================== Summary by node type ==============================
 	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
-	             Vx Delegate	        1	    32.466	   100.000%	   100.000%	     0.000	        1
+	             Vx Delegate	        1	   210.168	   100.000%	   100.000%	     0.000	        1
 
-Timings (microseconds): count=50 first=32513 curr=32446 min=32425 max=32566 avg=32466.1 std=29
+Timings (microseconds): count=50 first=129822 curr=128930 min=128255 max=864212 avg=210169 std=168682
 Memory (bytes): count=0
 1 nodes observed
 
