@@ -1,10 +1,10 @@
-## IMX8MPEVK Benchmarks
+# IMX8MPEVK Benchmarks
 
-# Clone repo
+## Clone repo
 
 	git clone https://github.com/ruitaodong/imx-benchmarks
 
-# Download to device
+## Download to device
 
 	scp -r -p imx-benchmarks root@imx8mpevk:/home/WIP
 
@@ -12,7 +12,7 @@ Alternatively, you can do an NFS mount from a Linux host
 
 	mount -t nfs linux:/home/WIP /home/WIP
 
-# Run
+## Run
 
 	ssh root@imx8mpevk
 	cd /home/WIP/imx-benchmarks
